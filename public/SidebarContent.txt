@@ -1,0 +1,111 @@
+Points of Interest
+NPC
+146
+Plasmium Cocoon
+4
+Point of Interest
+11
+Void Mass
+47
+
+Locations
+Bellway Station
+12
+Bench
+81
+Vendor
+23
+Ventrica Station
+7
+
+Collectibles
+Arcane Egg
+1
+Bone Scroll
+4
+Choral Commandment
+4
+Lost Flea
+30
+Mask Shard
+20
+Memento
+11
+Memory Locket
+20
+Psalm Cylinder
+6
+Rune Harp
+3
+Silk Heart
+3
+Spool Fragment
+18
+Weaver Effigy
+3
+
+Items
+Area Map
+29
+Craftmetal
+8
+Rosary
+107
+Rosary String
+34
+Shard Bundle
+22
+Shell Shards
+79
+Silkeater
+10
+
+Equipment
+Ability
+11
+Crest
+6
+Silk Skill
+6
+Tool
+56
+Upgrade
+15
+
+Enemies
+Arena Battle
+30
+Boss
+46
+Journal Entry
+237
+
+Quests
+Objective
+21
+Quest Item
+69
+Wish
+48
+
+Other
+Achievement
+52
+Breakable Surface
+216
+Easter Egg
+5
+Lever
+58
+Locked Door
+90
+Lore
+80
+Miscellaneous
+117
+Needolin Door
+5
+Shortcut
+25
+Silk Wall
+2
