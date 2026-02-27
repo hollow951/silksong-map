@@ -8,6 +8,8 @@ const SidebarContext = createContext();
 export default function Sidebar({ children }) {
   const [expanded, setExpanded] = useState(true);
   const [groupedData, setGroupedData] = useState([]);
+  const [linethrough, setlinethrough] = useState(false);
+
   const fetchData = async () => {
     const response = await axios.get("http://localhost:8080");
     setGroupedData(response.data.section);
@@ -16,6 +18,46 @@ export default function Sidebar({ children }) {
   useEffect(() => {
     fetchData();
   }, []);
+
+  const Data = (topic, datas) => {
+    return (
+      <>
+        <button
+          className="text-white mx-1"
+          onClick={() => setlinethrough((curr) => !curr)}
+        >
+          {topic}
+        </button>
+        {/* <div className="flex gap-2">
+        <input type="checkbox" id="strike-toggle" className="peer hidden" />
+        <label
+          htmlFor="strike-toggle"
+          className="text-white cursor-pointer px-1 peer-checked:line-through"
+        >
+          {topic}
+        </label>
+      </div> */}
+        <ul className="grid grid-cols-2">
+          {datas.map((data, i) => (
+            <div key={i}>
+              <input
+                type="checkbox"
+                id={`${data.content}-${i}`}
+                className="peer hidden"
+              />
+              <label
+                htmlFor={`${data.content}-${i}`}
+                className="flex justify-between bg-gray-700 rounded-lg px-1 m-1 gap-2 cursor-pointer peer-checked:line-through"
+              >
+                <p className="truncate">{data.content}</p>
+                <p>{data.text}</p>
+              </label>
+            </div>
+          ))}
+        </ul>
+      </>
+    );
+  };
 
   // useEffect(() => {
   //   fetch("/SidebarContent.txt")
@@ -52,7 +94,6 @@ export default function Sidebar({ children }) {
   //       setGroupedData(result);
   //     });
   // }, []);
-
   return (
     <div className="w-screen flex bg-slate-900">
       <div
@@ -141,11 +182,8 @@ export default function Sidebar({ children }) {
               </form>
             </div>
             <div>
-              {groupedData?.map((section, index) => (
-                <div key={index}>
-                  <p className="text-white">{section.title}</p>
-                </div>
-                // <div key={index}>{Data(section.title, section.submenu)}</div>
+              {groupedData.map((section, index) => (
+                <div key={index}>{Data(section.title, section.submenu)}</div>
               ))}
             </div>
           </nav>
@@ -158,37 +196,6 @@ export default function Sidebar({ children }) {
         </button>
       </div>
     </div>
-  );
-}
-
-function Data(topic, datas) {
-  return (
-    <>
-      {/* <button className="text-white mx-1">
-        {topic}
-      </button> */}
-      <div className="flex gap-2">
-        {/* Hidden checkbox acts as the state holder */}
-        <input type="checkbox" id="strike-toggle" className="peer hidden" />
-        <label
-          htmlFor="strike-toggle"
-          className="text-white cursor-pointer px-1 peer-checked:line-through"
-        >
-          {topic}
-        </label>
-      </div>
-      <ul className="grid grid-cols-2">
-        {datas.map((data, i) => (
-          <button
-            key={i}
-            className="flex justify-between bg-gray-700 rounded-lg px-1 m-1 gap-2"
-          >
-            <p className="truncate">{data.content}</p>
-            <p>{data.text}</p>
-          </button>
-        ))}
-      </ul>
-    </>
   );
 }
 
